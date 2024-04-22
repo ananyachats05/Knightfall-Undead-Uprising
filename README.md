@@ -6,5 +6,5 @@ This game follows a knight who has to kill the zombies in a classic style perfor
 2) Use the 'LEFT' and 'RIGHT' arrow keys to move left and right
 3) Use the 'SPACEBAR' to jump!
 
-# ps
+# Note
 Assets have been subdivided into two files due to storage limitations, however it's necessary for them to be in the same directory as the code to run.

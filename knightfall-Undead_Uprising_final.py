@@ -82,7 +82,7 @@ class Game():
         title_rect = title_text.get_rect()
         title_rect.center = (WINDOW_WIDTH//2, WINDOW_HEIGHT - 33)
 
-        round_text = self.HUD_font.render("Night: " + str(self.round_number), True, WHITE)
+        round_text = self.HUD_font.render("Apocalypse: " + str(self.round_number), True, WHITE)
         round_rect = round_text.get_rect()
         round_rect.topright = (WINDOW_WIDTH - 10, WINDOW_HEIGHT - 50)
 
@@ -585,7 +585,7 @@ class Bullet(pygame.sprite.Sprite):
         if abs(self.rect.x - self.starting_x) > self.RANGE:
             self.kill()
 
-
+#ananya add kar dena for left also- done
 class Zombie(pygame.sprite.Sprite):
 
     def __init__(self, platform_group, portal_group, min_speed, max_speed):
@@ -733,13 +733,14 @@ class Zombie(pygame.sprite.Sprite):
         self.check_collisions()
         self.check_animations()
 
-        #how long to get up after being dead
+        #how long to get up after being dead - time change? no
         if self.is_dead:
             self.frame_count += 1
             if self.frame_count % ping == 0:
                 self.round_time += 1
                 if self.round_time == self.RISE_TIME:
                     self.animate_rise = True
+                    #how?
                     #When the zombie died, we kept the image as the last image
                     #When it rose, we started at index 0 of our rise_sprite lists
                     self.current_sprite = 0
@@ -770,6 +771,7 @@ class Zombie(pygame.sprite.Sprite):
     def check_collisions(self):
         """Check for collisions with platforms and portals"""
         #Collision checking between zombie and platforms when falling
+        #upkar this i think is not working properly
         collided_platforms = pygame.sprite.spritecollide(self, self.platform_group, False)
         if collided_platforms:
             self.position.y = collided_platforms[0].rect.top + 1
@@ -874,7 +876,7 @@ class RubyMaker(pygame.sprite.Sprite):
 
 
 class Ruby(pygame.sprite.Sprite):
-    '''Ruby perks'''
+    '''Ruby perks- both for zombie and player'''
 
     def __init__(self, platform_group, portal_group):
         
